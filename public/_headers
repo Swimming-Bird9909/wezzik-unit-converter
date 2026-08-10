@@ -1,0 +1,22 @@
+/*
+  Cloudflare Pages headers
+  - Long cache for static assets
+  - Reasonable defaults for HTML
+*/
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600

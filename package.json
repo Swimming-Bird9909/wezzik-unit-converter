@@ -1,0 +1,17 @@
+{
+  "name": "unitwise",
+  "version": "1.0.0",
+  "description": "Free, fast, accurate online unit converter. Static-site Programmatic SEO.",
+  "private": true,
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "preview": "python3 -m http.server 8000",
+    "deploy": "wrangler pages deploy . --project-name unitwise"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "keywords": ["unit converter", "programmatic seo", "static site", "unitwise"],
+  "author": "UnitWise",
+  "license": "MIT"
+}

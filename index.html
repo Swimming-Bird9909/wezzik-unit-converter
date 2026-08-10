@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UnitWise — Free Unit Converter for Length, Weight, Cooking & More</title>
+  <meta name="description" content="Free online unit converter. Convert length, weight, temperature, volume, pressure, speed, energy, data storage and more. Fast, accurate, no signup." />
+  <meta name="keywords" content="unit converter, conversion calculator, metric to imperial, kg to lbs, celsius to fahrenheit, psi to bar, grams to cups" />
+  <link rel="canonical" href="https://unitwise.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="UnitWise — Free Unit Converter" />
+  <meta property="og:description" content="Convert anything: length, weight, temperature, volume, pressure, speed, energy and more. Fast and accurate." />
+  <meta property="og:url" content="https://unitwise.app/" />
+  <meta property="og:site_name" content="UnitWise" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UnitWise — Free Unit Converter" />
+  <meta name="twitter:description" content="Fast, free, accurate unit conversion for everything from cooking to engineering." />
+
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UnitWise",
+    "url": "https://unitwise.app",
+    "description": "Free online unit converter — length, weight, temperature, volume, pressure, speed, energy, data storage and more.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is UnitWise free to use?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. UnitWise is 100% free, with no signup required. All conversions happen in your browser."}
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are the conversions?",
+        "acceptedAnswer": {"@type": "Answer", "text": "We use the internationally accepted NIST conversion factors and formulas (with 8 significant figures by default)."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does UnitWise support cooking conversions?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. We have dedicated tools for grams to cups, butter grams to tablespoons, oz to ml, flour/cup ratios and more."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use UnitWise offline?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Once a page has loaded, the conversion tool works offline — your input is computed in the browser."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="uw-header">
+    <div class="uw-container uw-header__inner">
+      <a href="/" class="uw-logo">
+        <span class="uw-logo__mark">U</span>
+        UnitWise
+      </a>
+      <button class="uw-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <nav class="uw-nav" id="uwNav">
+        <a href="/all-converters.html">All Converters</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <button data-toggle-theme class="uw-theme-toggle" aria-label="Toggle theme">◑</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="uw-hero">
+      <div class="uw-container">
+        <span class="uw-hero__eyebrow">Lightning-fast · Browser-based · Zero tracking</span>
+        <h1>Convert any unit, instantly.</h1>
+        <p>Length, weight, temperature, volume, pressure, speed and more — 200+ precision converters powered by NIST-grade factors. All math runs locally in your browser.</p>
+
+        <!-- 站内搜索（输入即导航到目标换算页） -->
+        <div class="uw-search-box" style="max-width: 640px; margin: 2rem auto 0;">
+          <input type="text" class="uw-search-input" data-instant-search placeholder="Try: kg to lbs, celsius to fahrenheit, psi to bar..." />
+          <ul class="uw-search-results" data-instant-results></ul>
+        </div>
+
+        <div class="uw-hero__cta">
+          <a href="#categories" class="uw-btn">Browse all converters →</a>
+          <a href="#popular" class="uw-btn uw-btn--ghost">Most popular</a>
+        </div>
+
+        <div class="uw-hero__stats" aria-hidden="true">
+          <div class="uw-hero__stat"><strong>200+</strong><span>Converters</span></div>
+          <div class="uw-hero__stat-divider"></div>
+          <div class="uw-hero__stat"><strong>14</strong><span>Categories</span></div>
+          <div class="uw-hero__stat-divider"></div>
+          <div class="uw-hero__stat"><strong>8</strong><span>Sig. digits</span></div>
+          <div class="uw-hero__stat-divider"></div>
+          <div class="uw-hero__stat"><strong>0</strong><span>Signup</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 全部分类 -->
+    <section class="uw-section" id="categories">
+      <div class="uw-container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">All unit converters</h2>
+        <div class="uw-grid">
+          <a class="uw-card" href="/length-conversion.html">
+            <div class="uw-card__icon">📏</div>
+            <h3>Length</h3>
+            <p>Millimeters, centimeters, meters, kilometers, inches, feet, yards, miles.</p>
+          </a>
+          <a class="uw-card" href="/weight-conversion.html">
+            <div class="uw-card__icon">⚖️</div>
+            <h3>Weight</h3>
+            <p>Kilograms, grams, milligrams, pounds, ounces, stones, tons.</p>
+          </a>
+          <a class="uw-card" href="/temperature-conversion.html">
+            <div class="uw-card__icon">🌡️</div>
+            <h3>Temperature</h3>
+            <p>Celsius, Fahrenheit, Kelvin, Rankine.</p>
+          </a>
+          <a class="uw-card" href="/volume-conversion.html">
+            <div class="uw-card__icon">🧴</div>
+            <h3>Volume</h3>
+            <p>Liters, milliliters, gallons, cups, fluid ounces, tablespoons.</p>
+          </a>
+          <a class="uw-card" href="/cooking-conversion.html">
+            <div class="uw-card__icon">🍳</div>
+            <h3>Cooking</h3>
+            <p>Grams to cups, butter grams to tablespoons, oz to ml.</p>
+          </a>
+          <a class="uw-card" href="/pressure-conversion.html">
+            <div class="uw-card__icon">🔧</div>
+            <h3>Pressure</h3>
+            <p>PSI, bar, kilopascal, atmosphere, torr.</p>
+          </a>
+          <a class="uw-card" href="/speed-conversion.html">
+            <div class="uw-card__icon">💨</div>
+            <h3>Speed</h3>
+            <p>MPH, km/h, m/s, knots, ft/s.</p>
+          </a>
+          <a class="uw-card" href="/area-conversion.html">
+            <div class="uw-card__icon">📐</div>
+            <h3>Area</h3>
+            <p>Square meters, square feet, acres, hectares.</p>
+          </a>
+          <a class="uw-card" href="/time-conversion.html">
+            <div class="uw-card__icon">⏱️</div>
+            <h3>Time</h3>
+            <p>Seconds, minutes, hours, days, weeks.</p>
+          </a>
+          <a class="uw-card" href="/energy-conversion.html">
+            <div class="uw-card__icon">⚡</div>
+            <h3>Energy</h3>
+            <p>Joules, calories, watt-hours, BTU.</p>
+          </a>
+          <a class="uw-card" href="/data-storage-conversion.html">
+            <div class="uw-card__icon">💾</div>
+            <h3>Digital Storage</h3>
+            <p>Bits, bytes, KB, MB, GB, TB.</p>
+          </a>
+          <a class="uw-card" href="/angle-conversion.html">
+            <div class="uw-card__icon">📊</div>
+            <h3>Angle</h3>
+            <p>Degrees, radians, gradians.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 热门换算 -->
+    <section class="uw-section uw-section--muted" id="popular">
+      <div class="uw-container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Most popular converters</h2>
+        <div class="uw-grid">
+          <a class="uw-card" href="/kg-to-lbs.html">
+            <div class="uw-card__icon">⚖️</div>
+            <h3>kg to lbs</h3>
+            <p>Kilograms → Pounds. Essential for body weight, fitness and travel.</p>
+          </a>
+          <a class="uw-card" href="/mm-to-inches.html">
+            <div class="uw-card__icon">📏</div>
+            <h3>mm to inches</h3>
+            <p>Millimeters → Inches. For hardware, jewelry and engineering.</p>
+          </a>
+          <a class="uw-card" href="/cm-to-inches.html">
+            <div class="uw-card__icon">📏</div>
+            <h3>cm to inches</h3>
+            <p>Centimeters → Inches. Clothing, height and furniture.</p>
+          </a>
+          <a class="uw-card" href="/celsius-to-fahrenheit.html">
+            <div class="uw-card__icon">🌡️</div>
+            <h3>Celsius to Fahrenheit</h3>
+            <p>°C → °F. Weather, ovens, cooking and science.</p>
+          </a>
+          <a class="uw-card" href="/gallons-to-liters.html">
+            <div class="uw-card__icon">🧴</div>
+            <h3>Gallons to Liters</h3>
+            <p>US gallons → Liters. Fuel, paint and aquariums.</p>
+          </a>
+          <a class="uw-card" href="/psi-to-bar.html">
+            <div class="uw-card__icon">🔧</div>
+            <h3>PSI to Bar</h3>
+            <p>PSI → Bar. Tire pressure and industrial gauges.</p>
+          </a>
+          <a class="uw-card" href="/cups-to-ml.html">
+            <div class="uw-card__icon">🧴</div>
+            <h3>Cups to ml</h3>
+            <p>Cups → Milliliters. International recipes.</p>
+          </a>
+          <a class="uw-card" href="/grams-to-ounces.html">
+            <div class="uw-card__icon">⚖️</div>
+            <h3>Grams to ounces</h3>
+            <p>Grams → Ounces. Postal, food and chemistry.</p>
+          </a>
+          <a class="uw-card" href="/meters-to-feet.html">
+            <div class="uw-card__icon">📏</div>
+            <h3>Meters to feet</h3>
+            <p>Meters → Feet. Construction and surveying.</p>
+          </a>
+          <a class="uw-card" href="/mph-to-kmh.html">
+            <div class="uw-card__icon">💨</div>
+            <h3>MPH to km/h</h3>
+            <p>Miles per hour → Kilometers per hour. Speedometers and cycling.</p>
+          </a>
+          <a class="uw-card" href="/oz-to-ml.html">
+            <div class="uw-card__icon">🧴</div>
+            <h3>oz to ml</h3>
+            <p>Fluid ounces → Milliliters. Bottle sizes and pharmaceuticals.</p>
+          </a>
+          <a class="uw-card" href="/km-to-miles.html">
+            <div class="uw-card__icon">📏</div>
+            <h3>km to miles</h3>
+            <p>Kilometers → Miles. Driving and races.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 卖点文案 -->
+    <section class="uw-section">
+      <div class="uw-container uw-prose">
+        <h2>Why UnitWise?</h2>
+        <p>UnitWise gives you instant, accurate unit conversions for everyday math, engineering, cooking, fitness and science. Every converter on this site shares the same clean interface — type a number, get the answer. No signup, no popup, no tracking.</p>
+        <ul>
+          <li><strong>10+ categories.</strong> Length, weight, temperature, volume, pressure, speed, area, time, energy, data storage, angle, frequency, fuel economy and counting.</li>
+          <li><strong>Real-world focus.</strong> Cooking measurements (grams of flour to cups), tire pressure (psi to bar), speed limits (mph to km/h) — the conversions people actually search for.</li>
+          <li><strong>Fast &amp; private.</strong> All conversion math runs in your browser. We don't send your numbers to a server.</li>
+          <li><strong>Bookmark-able.</strong> Every URL is shareable — what you see is exactly what you'll get.</li>
+        </ul>
+
+        <h2>How to use the converters</h2>
+        <ol>
+          <li>Type any number in the left input. The right side updates immediately.</li>
+          <li>Use the swap button ⇄ to flip the conversion direction.</li>
+          <li>Click a preset (1, 10, 100…) for instant sample values.</li>
+          <li>Copy the result with one click. Pasted cleanly into any document.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="uw-section uw-section--muted">
+      <div class="uw-container uw-prose">
+        <h2>Frequently asked questions</h2>
+        <div class="uw-faq">
+          <details class="uw-faq__item">
+            <summary class="uw-faq__q">Is UnitWise free?</summary>
+            <p class="uw-faq__a">Yes — 100% free, no signup, no limits. We support it with unobtrusive ads.</p>
+          </details>
+          <details class="uw-faq__item">
+            <summary class="uw-faq__q">How accurate is the conversion?</summary>
+            <p class="uw-faq__a">We use NIST-published factors with up to 8 significant digits. Temperature conversions use the standard formulas (e.g. °F = °C × 9/5 + 32).</p>
+          </details>
+          <details class="uw-faq__item">
+            <summary class="uw-faq__q">Why is 1 KB = 1000 B but my Mac says 1024?</summary>
+            <p class="uw-faq__a">Industry adopted SI prefixes (1 KB = 1000 B) years ago. macOS uses binary GiB/KiB under the hood but displays them as GB/KB. Our converter defaults to the SI standard; the data storage page explains both.</p>
+          </details>
+          <details class="uw-faq__item">
+            <summary class="uw-faq__q">Can I convert between cooking ingredients?</summary>
+            <p class="uw-faq__a">For cooking, mass-to-volume depends on the ingredient. We publish dedicated pages (grams of flour to cups, butter grams to tablespoons) with ingredient-specific factors.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="uw-footer">
+    <div class="uw-container">
+      <div class="uw-footer__cols">
+        <div>
+          <a href="/" class="uw-logo" style="margin-bottom: .6rem;">
+            <span class="uw-logo__mark">U</span> UnitWise
+          </a>
+          <p>Free, fast, accurate unit conversion — anywhere.</p>
+        </div>
+        <div>
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="/kg-to-lbs.html">kg to lbs</a></li>
+            <li><a href="/mm-to-inches.html">mm to inches</a></li>
+            <li><a href="/celsius-to-fahrenheit.html">°C to °F</a></li>
+            <li><a href="/psi-to-bar.html">psi to bar</a></li>
+            <li><a href="/grams-to-cups.html">grams to cups</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="/length-conversion.html">Length</a></li>
+            <li><a href="/weight-conversion.html">Weight</a></li>
+            <li><a href="/temperature-conversion.html">Temperature</a></li>
+            <li><a href="/cooking-conversion.html">Cooking</a></li>
+            <li><a href="/all-converters.html">All categories →</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/legal/privacy.html">Privacy</a></li>
+            <li><a href="/legal/terms.html">Terms</a></li>
+            <li><a href="/legal/cookies.html">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="uw-footer__bottom">
+        <span>© <span data-year>2026</span> UnitWise. All rights reserved.</span>
+        <span>Built with care. Maintained in-house.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie 横幅 -->
+  <aside class="uw-cookie" hidden data-cookie-banner>
+    <p>We use cookies for essential site functions and ad measurement. See our <a href="/legal/cookies.html">Cookies Policy</a>.</p>
+    <div class="uw-cookie__actions">
+      <button class="uw-btn" data-cookie-accept>Accept</button>
+    </div>
+  </aside>
+
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/engine.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    // 移动端菜单
+    document.querySelector('.uw-mobile-toggle')?.addEventListener('click', () => {
+      document.querySelector('#uwNav')?.classList.toggle('is-open');
+    });
+  </script>
+</body>
+</html>

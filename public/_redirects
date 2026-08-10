@@ -1,0 +1,31 @@
+# Cloudflare Pages redirects
+# Allow all by default, optimize cache headers via _headers file
+
+# Trailing slash → no slash
+/contact  /contact.html  301
+/about    /about.html    301
+
+# All categories
+/length-conversion     /length-conversion.html     301
+/weight-conversion     /weight-conversion.html     301
+/temperature-conversion /temperature-conversion.html 301
+/volume-conversion     /volume-conversion.html     301
+/cooking-conversion    /cooking-conversion.html    301
+/pressure-conversion   /pressure-conversion.html   301
+/speed-conversion      /speed-conversion.html      301
+/area-conversion       /area-conversion.html       301
+/time-conversion       /time-conversion.html       301
+/energy-conversion     /energy-conversion.html     301
+/data-storage-conversion /data-storage-conversion.html 301
+/angle-conversion      /angle-conversion.html      301
+/frequency-conversion  /frequency-conversion.html  301
+/fuel-economy-conversion /fuel-economy-conversion.html 301
+/all-converters        /all-converters.html        301
+
+# Privacy / Terms / Cookies
+/legal/privacy  /legal/privacy.html  301
+/legal/terms    /legal/terms.html    301
+/legal/cookies  /legal/cookies.html  301
+
+# Defense-in-depth：没有 .html 的 slug → 加 .html（兜底，避免 engine bug 再走首页）
+# 命中现有 .html 的精确匹配会被 Cloudflare 优先匹配，30x 仅在缺后缀时触发

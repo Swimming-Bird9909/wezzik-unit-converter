@@ -1,0 +1,12 @@
+# Cloudflare Pages 部署配置（备选方案：纯 Cloudflare 托管）
+# 用法：wrangler pages deploy . --project-name=wezzik-unit-converter
+# 或直接在 Cloudflare Dashboard 连接 Git 仓库（构建命令留空，输出目录填 "."）
+
+name = "wezzik-unit-converter"
+pages_build_output_dir = "."
+compatibility_date = "2024-11-01"
+
+# 注意：Cloudflare Pages 会自动读取项目根目录的
+#   public/_redirects   → 重定向规则
+#   public/_headers     → 响应头规则
+# 这两个文件已经就位，无需额外配置。

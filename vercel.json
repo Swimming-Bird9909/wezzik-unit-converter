@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "name": "wezzik-unit-converter",
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "framework": "other",
+  "headers": [
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)\\.(css|js|svg)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": false }
+  ]
+}
