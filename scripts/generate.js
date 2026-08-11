@@ -321,7 +321,7 @@ function renderOne(pair) {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: title,
-    url: `https://unitwise.app/${pair.slug}.html`,
+    url: `https://convert.wezzik.com/${pair.slug}.html`,
     description: metaDescription,
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'Any',
@@ -332,8 +332,8 @@ function renderOne(pair) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://unitwise.app/' },
-      { '@type': 'ListItem', position: 2, name: catData.name, item: `https://unitwise.app/${pair.cat}-conversion.html` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://convert.wezzik.com/' },
+      { '@type': 'ListItem', position: 2, name: catData.name, item: `https://convert.wezzik.com/${pair.cat}-conversion.html` },
       { '@type': 'ListItem', position: 3, name: `${uFrom.name} to ${uTo.name}` },
     ],
   }, null, 2);
@@ -433,7 +433,7 @@ function renderCategoryPage(catKey) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeForJson(title)}</title>
   <meta name="description" content="${escapeForJson(metaDesc)}" />
-  <link rel="canonical" href="https://unitwise.app/${slug}-conversion.html" />
+  <link rel="canonical" href="https://convert.wezzik.com/${slug}-conversion.html" />
   <meta property="og:title" content="${escapeForJson(title)}" />
   <meta property="og:description" content="${escapeForJson(metaDesc)}" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
@@ -503,7 +503,7 @@ function renderAllConverters() {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>All Unit Converters — Browse Every Tool | UnitWise</title>
   <meta name="description" content="Browse every unit converter we offer: length, weight, temperature, volume, pressure, cooking and more. Find the exact one you need." />
-  <link rel="canonical" href="https://unitwise.app/all-converters.html" />
+  <link rel="canonical" href="https://convert.wezzik.com/all-converters.html" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
@@ -554,15 +554,15 @@ function renderAllConverters() {
 // ===== sitemap.xml =====
 function renderSitemap() {
   const urls = [
-    { loc: 'https://unitwise.app/', priority: '1.0' },
-    { loc: 'https://unitwise.app/all-converters.html', priority: '0.8' },
-    ...Object.keys(UNIT_DATA).map(cat => ({ loc: `https://unitwise.app/${(UNIT_DATA[cat].slug || cat)}-conversion.html`, priority: '0.7' })),
-    ...FEATURED_PAIRS.map(p => ({ loc: `https://unitwise.app/${p.slug}.html`, priority: '0.6' })),
-    { loc: 'https://unitwise.app/about.html', priority: '0.5' },
-    { loc: 'https://unitwise.app/contact.html', priority: '0.5' },
-    { loc: 'https://unitwise.app/legal/privacy.html', priority: '0.3' },
-    { loc: 'https://unitwise.app/legal/terms.html', priority: '0.3' },
-    { loc: 'https://unitwise.app/legal/cookies.html', priority: '0.3' },
+    { loc: 'https://convert.wezzik.com/', priority: '1.0' },
+    { loc: 'https://convert.wezzik.com/all-converters.html', priority: '0.8' },
+    ...Object.keys(UNIT_DATA).map(cat => ({ loc: `https://convert.wezzik.com/${(UNIT_DATA[cat].slug || cat)}-conversion.html`, priority: '0.7' })),
+    ...FEATURED_PAIRS.map(p => ({ loc: `https://convert.wezzik.com/${p.slug}.html`, priority: '0.6' })),
+    { loc: 'https://convert.wezzik.com/about.html', priority: '0.5' },
+    { loc: 'https://convert.wezzik.com/contact.html', priority: '0.5' },
+    { loc: 'https://convert.wezzik.com/legal/privacy.html', priority: '0.3' },
+    { loc: 'https://convert.wezzik.com/legal/terms.html', priority: '0.3' },
+    { loc: 'https://convert.wezzik.com/legal/cookies.html', priority: '0.3' },
   ];
   const lastmod = new Date().toISOString();
   const body = urls.map(u => `  <url>
@@ -604,7 +604,7 @@ function main() {
   console.log(`\nNext steps:`);
   console.log(`  1. preview locally:   open index.html in your browser`);
   console.log(`  2. deploy to Cloudflare Pages:  cf pages deploy .`);
-  console.log(`  3. submit sitemap:    curl "https://www.google.com/ping?sitemap=https://unitwise.app/sitemap.xml"`);
+  console.log(`  3. submit sitemap:    curl "https://www.google.com/ping?sitemap=https://convert.wezzik.com/sitemap.xml"`);
 }
 
 main();
