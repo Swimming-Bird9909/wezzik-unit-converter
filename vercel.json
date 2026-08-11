@@ -2,9 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "name": "wezzik-unit-converter",
-  "buildCommand": "",
-  "outputDirectory": ".",
-  "framework": "other",
   "headers": [
     {
       "source": "/(.*)\\.html",
