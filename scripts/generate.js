@@ -434,10 +434,18 @@ function renderCategoryPage(catKey) {
   <title>${escapeForJson(title)}</title>
   <meta name="description" content="${escapeForJson(metaDesc)}" />
   <link rel="canonical" href="https://convert.wezzik.com/${slug}-conversion.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta property="og:title" content="${escapeForJson(title)}" />
   <meta property="og:description" content="${escapeForJson(metaDesc)}" />
+  <meta property="og:image" content="https://convert.wezzik.com/assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://convert.wezzik.com/assets/img/og-image.png" />
+  <meta name="theme-color" content="#4f46e5" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
 <body>
   <header class="uw-header">
@@ -496,6 +504,13 @@ function renderAllConverters() {
     </a>`;
   }).join('\n');
 
+  // 烹饪是一个跨类别的聚合页（非 UNIT_DATA 键），单独补一张卡片
+  const cookingCard = `<a class="uw-card" href="/cooking-conversion.html">
+      <div class="uw-card__icon">🍳</div>
+      <h3>Cooking</h3>
+      <p>Cups, grams, tablespoons, ounces — for the kitchen.</p>
+    </a>`;
+
   const html = `<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -504,8 +519,18 @@ function renderAllConverters() {
   <title>All Unit Converters — Browse Every Tool | UnitWise</title>
   <meta name="description" content="Browse every unit converter we offer: length, weight, temperature, volume, pressure, cooking and more. Find the exact one you need." />
   <link rel="canonical" href="https://convert.wezzik.com/all-converters.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:title" content="All Unit Converters — Browse Every Tool | UnitWise" />
+  <meta property="og:description" content="Browse every unit converter we offer: length, weight, temperature, volume, pressure, cooking and more. Find the exact one you need." />
+  <meta property="og:image" content="https://convert.wezzik.com/assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://convert.wezzik.com/assets/img/og-image.png" />
+  <meta name="theme-color" content="#4f46e5" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
 <body>
   <header class="uw-header">
@@ -533,6 +558,7 @@ function renderAllConverters() {
       <section class="uw-section" style="padding-top: 1.5rem;">
         <div class="uw-grid">
           ${cards}
+          ${cookingCard}
         </div>
       </section>
     </div>
@@ -556,6 +582,8 @@ function renderSitemap() {
   const urls = [
     { loc: 'https://convert.wezzik.com/', priority: '1.0' },
     { loc: 'https://convert.wezzik.com/all-converters.html', priority: '0.8' },
+    { loc: 'https://convert.wezzik.com/cooking-conversion.html', priority: '0.7' },
+    { loc: 'https://convert.wezzik.com/blog.html', priority: '0.6' },
     ...Object.keys(UNIT_DATA).map(cat => ({ loc: `https://convert.wezzik.com/${(UNIT_DATA[cat].slug || cat)}-conversion.html`, priority: '0.7' })),
     ...FEATURED_PAIRS.map(p => ({ loc: `https://convert.wezzik.com/${p.slug}.html`, priority: '0.6' })),
     { loc: 'https://convert.wezzik.com/about.html', priority: '0.5' },
