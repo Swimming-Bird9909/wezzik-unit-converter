@@ -32,6 +32,16 @@ const includeAll = argv.includes('--all');
 
 const TEMPLATE = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
 
+// GA4 统计片段（占位 ID，部署前把 G-REPLACE-ME 换成真实 G-XXXX）
+const GA4_SNIPPET = `<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-REPLACE-ME"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-REPLACE-ME');
+</script>`;
+
 // ===== 文案库 =====
 // 每个类别 4-6 个 FAQ，以及两段 about 软文。直接静态写、不做 AI 拼装以保证一致性。
 
@@ -442,6 +452,7 @@ function renderCategoryPage(catKey) {
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://convert.wezzik.com/assets/img/og-image.png" />
+  ${GA4_SNIPPET}
   <meta name="theme-color" content="#4f46e5" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/style.css" />
@@ -527,6 +538,7 @@ function renderAllConverters() {
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://convert.wezzik.com/assets/img/og-image.png" />
+  ${GA4_SNIPPET}
   <meta name="theme-color" content="#4f46e5" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/style.css" />
