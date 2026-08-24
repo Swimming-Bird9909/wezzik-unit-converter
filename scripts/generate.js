@@ -32,14 +32,14 @@ const includeAll = argv.includes('--all');
 
 const TEMPLATE = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
 
-// GA4 统计片段（占位 ID，部署前把 G-REPLACE-ME 换成真实 G-XXXX）
+// GA4 统计片段（占位 ID，部署前把 G-MBNPYB5FJ7 换成真实 G-XXXX）
 const GA4_SNIPPET = `<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REPLACE-ME"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MBNPYB5FJ7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-REPLACE-ME');
+  gtag('config', 'G-MBNPYB5FJ7');
 </script>`;
 
 // ===== 文案库 =====
