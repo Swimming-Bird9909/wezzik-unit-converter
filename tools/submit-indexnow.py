@@ -39,9 +39,18 @@ KEY_LOC = f"https://{HOST}/{key_file}"
 
 
 def fetch_urls():
-    req = urllib.request.Request(SITEMAP, headers={"User-Agent": UA})
-    data = urllib.request.urlopen(req, timeout=20).read().decode()
-    return re.findall(r"<loc>\s*(.*?)\s*</loc>", data)
+    # 优先读本地 sitemap.xml（离线可靠，不依赖线上抓取被 WAF 拦截）
+    local = os.path.join(ROOT, "sitemap.xml")
+    if os.path.exists(local):
+        with open(local, encoding="utf-8") as f:
+            data = f.read()
+    else:
+        req = urllib.request.Request(SITEMAP, headers={"User-Agent": UA})
+        data = urllib.request.urlopen(req, timeout=20).read().decode()
+    urls = re.findall(r"<loc>\s*(.*?)\s*</loc>", data)
+    # 仅保留属于本站的 URL，过滤掉任何重定向/外链
+    urls = [u for u in urls if u.startswith(f"https://{HOST}/")]
+    return urls
 
 
 def post(urls):
