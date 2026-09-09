@@ -266,8 +266,9 @@ function renderOne(pair) {
   const isCross = !!pair.density;
   const copy = COPY[uFrom.cat] || COPY[uTo.cat] || COPY.weight;
 
-  const title = `${uFrom.name} to ${uTo.name} Converter`;
-  const h1   = `${uFrom.name} to ${uTo.name} Converter`;
+  const materialLabel = pair.material ? ` for ${capitalize(pair.material)}` : '';
+  const title = `${uFrom.name} to ${uTo.name} Converter${materialLabel}`;
+  const h1   = `${uFrom.name} to ${uTo.name} Converter${materialLabel}`;
   const h1LowerCase = `${uFrom.name} to ${uTo.name}`.toLowerCase();
   const metaDescription = copy.aboutA(uFrom, uTo).slice(0, 158).replace(/<[^>]+>/g, '');
   const keywords = [uFrom.name.toLowerCase(), uTo.name.toLowerCase(), uFrom.symbol, uTo.symbol, pair.slug, 'converter', 'free'].join(', ');
@@ -335,6 +336,8 @@ function renderOne(pair) {
     description: metaDescription,
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'Any',
+    isAccessibleForFree: true,
+    provider: { '@id': 'https://convert.wezzik.com/#organization' },
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   }, null, 2);
 
@@ -457,6 +460,17 @@ function renderCategoryPage(catKey) {
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script type="application/ld+json">
+  ${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `https://convert.wezzik.com/${slug}-conversion.html#page`,
+    name: title,
+    url: `https://convert.wezzik.com/${slug}-conversion.html`,
+    description: metaDesc,
+    isPartOf: { '@id': 'https://convert.wezzik.com/#website' },
+  })}
+  </script>
 </head>
 <body>
   <header class="uw-header">
@@ -543,6 +557,9 @@ function renderAllConverters() {
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","@id":"https://convert.wezzik.com/all-converters.html#page","name":"All Unit Converters","url":"https://convert.wezzik.com/all-converters.html","isPartOf":{"@id":"https://convert.wezzik.com/#website"}}
+  </script>
 </head>
 <body>
   <header class="uw-header">
