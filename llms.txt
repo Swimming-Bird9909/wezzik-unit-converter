@@ -1,0 +1,49 @@
+# UnitWise — Free Unit Converter
+
+> Free unit conversion tools at convert.wezzik.com. Convert length, weight, volume, temperature, pressure, speed, time, energy, angle, frequency, fuel economy, cooking measurements and digital storage. Accurate, instant, no signup.
+
+## Popular Converters
+
+- [PSI to Bar](https://convert.wezzik.com/psi-to-bar.html): Convert PSI to bar and back for tire pressure and industrial gauges.
+- [Bar to PSI](https://convert.wezzik.com/bar-to-psi.html): Bar to pounds per square inch conversion.
+- [KPA to PSI](https://convert.wezzik.com/kpa-to-psi.html): Kilopascal to PSI conversion.
+- [1 Cup in ML](https://convert.wezzik.com/cups-to-ml.html): US cup to milliliters conversion.
+- [Cups to ML](https://convert.wezzik.com/cups-to-ml.html): Convert cups to milliliters for cooking.
+- [ML to Cups](https://convert.wezzik.com/ml-to-cups.html): Milliliters to cups conversion.
+- [Grams to Cups](https://convert.wezzik.com/grams-to-cups.html): Weight to volume for cooking ingredients.
+- [Grams to Ounces](https://convert.wezzik.com/grams-to-ounces.html): Gram to ounce conversion.
+- [Celsius to Fahrenheit](https://convert.wezzik.com/celsius-to-fahrenheit.html): Temperature conversion °C to °F.
+- [KG to LBS](https://convert.wezzik.com/kg-to-lbs.html): Kilograms to pounds conversion.
+- [KM to Miles](https://convert.wezzik.com/km-to-miles.html): Kilometers to miles conversion.
+- [MPH to KMH](https://convert.wezzik.com/mph-to-kmh.html): Miles per hour to kilometers per hour.
+- [OZ to ML](https://convert.wezzik.com/oz-to-ml.html): Fluid ounces to milliliters.
+
+## Conversion Categories
+
+- [Length Converter](https://convert.wezzik.com/length-conversion.html): Meters, feet, inches, centimeters, miles, kilometers.
+- [Weight Converter](https://convert.wezzik.com/weight-conversion.html): Kilograms, pounds, ounces, grams, tons.
+- [Volume Converter](https://convert.wezzik.com/volume-conversion.html): Liters, milliliters, gallons, cups, fluid ounces.
+- [Temperature Converter](https://convert.wezzik.com/temperature-conversion.html): Celsius, Fahrenheit, Kelvin.
+- [Area Converter](https://convert.wezzik.com/area-conversion.html): Square meters, square feet, acres, hectares.
+- [Pressure Converter](https://convert.wezzik.com/pressure-conversion.html): PSI, bar, kPa, atm.
+- [Speed Converter](https://convert.wezzik.com/speed-conversion.html): km/h, mph, m/s, knots.
+- [Time Converter](https://convert.wezzik.com/time-conversion.html): Seconds, minutes, hours, days.
+- [Energy Converter](https://convert.wezzik.com/energy-conversion.html): Joules, calories, kWh, BTU.
+- [Angle Converter](https://convert.wezzik.com/angle-conversion.html): Degrees, radians, gradians.
+- [Frequency Converter](https://convert.wezzik.com/frequency-conversion.html): Hz, kHz, MHz, GHz.
+- [Fuel Economy Converter](https://convert.wezzik.com/fuel-economy-conversion.html): MPG, L/100km, km/L.
+- [Cooking Converter](https://convert.wezzik.com/cooking-conversion.html): Cups, grams, tablespoons, ounces, butter and flour.
+- [Digital Storage Converter](https://convert.wezzik.com/data-storage-conversion.html): Bytes, KB, MB, GB, TB.
+- [All Unit Converters](https://convert.wezzik.com/all-converters.html): Browse every converter on UnitWise.
+
+## Blog
+
+- [UnitWise Blog](https://convert.wezzik.com/blog.html): Measurement tips and conversion guides.
+
+## Company & Legal
+
+- [About](https://convert.wezzik.com/about.html)
+- [Contact](https://convert.wezzik.com/contact.html)
+- [Privacy Policy](https://convert.wezzik.com/legal/privacy.html)
+- [Terms](https://convert.wezzik.com/legal/terms.html)
+- [Cookies](https://convert.wezzik.com/legal/cookies.html)
