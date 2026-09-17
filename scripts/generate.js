@@ -48,6 +48,7 @@ const PAGE_OVERRIDES = {
     title: 'PSI to Bar Converter: Formula & Quick Chart | UnitWise',
     description: 'Convert psi to bar instantly. 1 psi ≈ 0.0689476 bar; divide psi by 14.5038 for bar. Includes a calculator and common pressure values.',
     lead: '1 psi is approximately 0.0689476 bar. Enter a pressure below to convert psi to bar, or use the quick reference table for common values.',
+    about: 'PSI and bar are both pressure units. The calculator uses 1 psi ≈ 0.0689476 bar, making it useful when comparing specifications or gauge readings shown in different units.',
     formula: 'Multiply psi by 0.0689476 to get bar. For example, 30 psi is approximately 2.06843 bar. The result is rounded because the converter uses an approximate psi factor.',
     detail: 'To convert psi to bar, multiply the psi value by 0.0689476. For example, 30 psi is about 2.06843 bar. This page uses an approximate psi factor, so round the result to the precision needed for your task.',
   },
@@ -55,6 +56,7 @@ const PAGE_OVERRIDES = {
     title: 'kPa to PSI Converter: Formula & Quick Chart | UnitWise',
     description: 'Convert kPa to psi instantly. 1 kPa ≈ 0.145038 psi; divide kPa by 6.89476 for psi. Includes a calculator and quick reference table.',
     lead: '1 kilopascal is approximately 0.145038 psi. Enter a pressure below to convert kPa to psi, or use the quick reference table.',
+    about: 'Kilopascals and psi describe the same physical quantity on different scales. Use this calculator to compare pressure values on labels, gauges, or specifications.',
     formula: 'Divide kPa by 6.89476 to get psi. For example, 100 kPa is approximately 14.5038 psi. The result is rounded because the converter uses an approximate psi factor.',
     detail: 'To convert kPa to psi, divide the kPa value by 6.89476. For example, 100 kPa is about 14.5038 psi. This page uses an approximate psi factor, so do not treat rounded results as measurement precision.',
   },
@@ -62,6 +64,7 @@ const PAGE_OVERRIDES = {
     title: 'US Cups to mL Converter: 1 Cup ≈ 236.588 mL | UnitWise',
     description: 'Convert US customary cups to milliliters instantly. 1 US cup ≈ 236.588 mL; 2 cups ≈ 473.176 mL. Metric cups are 250 mL and are not used here.',
     lead: '1 US customary cup is approximately 236.588 mL. Enter cups below for an instant result. A metric cup is 250 mL, so check which cup your recipe means.',
+    about: 'Cup measurements vary by convention. This calculator uses the US customary cup represented in the site data as 236.588 mL; it does not silently substitute a metric cup.',
     formula: 'Multiply US customary cups by 236.588 to get milliliters. For example, 2 cups are approximately 473.176 mL. This calculator does not use the 250 mL metric cup.',
     detail: 'Multiply US customary cups by 236.588 to get milliliters. For example, 2 cups are approximately 473.176 mL. This converter uses US customary cups, not 250 mL metric cups or 240 mL US legal cups.',
   },
@@ -308,7 +311,7 @@ function renderOne(pair) {
     about2 = `Volume-to-mass ratios like ${pair.density} ${uFrom.symbol.toLowerCase()} per ${uTo.symbol.toLowerCase()} are reference values widely used in cookbooks. They assume standard density at room temperature.`;
   } else {
     formulaPara = pageOverride?.formula || copy.formulaP(uFrom, uTo);
-    about1 = copy.aboutA(uFrom, uTo);
+    about1 = pageOverride?.about || copy.aboutA(uFrom, uTo);
     about2 = pageOverride?.detail || copy.aboutB(uFrom, uTo);
   }
 
