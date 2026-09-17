@@ -42,6 +42,31 @@ const GA4_SNIPPET = `<!-- Google tag (gtag.js) -->
   gtag('config', 'G-MBNPYB5FJ7');
 </script>`;
 
+// 为有搜索曝光的页面提供直接、明确的换算答案。
+const PAGE_OVERRIDES = {
+  'psi-to-bar': {
+    title: 'PSI to Bar Converter: Formula & Quick Chart | UnitWise',
+    description: 'Convert psi to bar instantly. 1 psi ≈ 0.0689476 bar; divide psi by 14.5038 for bar. Includes a calculator and common pressure values.',
+    lead: '1 psi is approximately 0.0689476 bar. Enter a pressure below to convert psi to bar, or use the quick reference table for common values.',
+    formula: 'Multiply psi by 0.0689476 to get bar. For example, 30 psi is approximately 2.06843 bar. The result is rounded because the converter uses an approximate psi factor.',
+    detail: 'To convert psi to bar, multiply the psi value by 0.0689476. For example, 30 psi is about 2.06843 bar. This page uses an approximate psi factor, so round the result to the precision needed for your task.',
+  },
+  'kpa-to-psi': {
+    title: 'kPa to PSI Converter: Formula & Quick Chart | UnitWise',
+    description: 'Convert kPa to psi instantly. 1 kPa ≈ 0.145038 psi; divide kPa by 6.89476 for psi. Includes a calculator and quick reference table.',
+    lead: '1 kilopascal is approximately 0.145038 psi. Enter a pressure below to convert kPa to psi, or use the quick reference table.',
+    formula: 'Divide kPa by 6.89476 to get psi. For example, 100 kPa is approximately 14.5038 psi. The result is rounded because the converter uses an approximate psi factor.',
+    detail: 'To convert kPa to psi, divide the kPa value by 6.89476. For example, 100 kPa is about 14.5038 psi. This page uses an approximate psi factor, so do not treat rounded results as measurement precision.',
+  },
+  'cups-to-ml': {
+    title: 'US Cups to mL Converter: 1 Cup ≈ 236.588 mL | UnitWise',
+    description: 'Convert US customary cups to milliliters instantly. 1 US cup ≈ 236.588 mL; 2 cups ≈ 473.176 mL. Metric cups are 250 mL and are not used here.',
+    lead: '1 US customary cup is approximately 236.588 mL. Enter cups below for an instant result. A metric cup is 250 mL, so check which cup your recipe means.',
+    formula: 'Multiply US customary cups by 236.588 to get milliliters. For example, 2 cups are approximately 473.176 mL. This calculator does not use the 250 mL metric cup.',
+    detail: 'Multiply US customary cups by 236.588 to get milliliters. For example, 2 cups are approximately 473.176 mL. This converter uses US customary cups, not 250 mL metric cups or 240 mL US legal cups.',
+  },
+};
+
 // ===== 文案库 =====
 // 每个类别 4-6 个 FAQ，以及两段 about 软文。直接静态写、不做 AI 拼装以保证一致性。
 
@@ -74,13 +99,13 @@ const COPY = {
 
   volume: {
     aboutA: (from, to) => `Volume conversions are among the most common on the internet — from kitchen recipes (cups vs milliliters), to fuel efficiency (gallons vs liters), to chemistry and pharmaceuticals. Our ${from.name} → ${to.name} converter is built for exactly those everyday uses.`,
-    aboutB: (from, to) => `${capitalize(uOfSystem(from.symbol))} — both metric and US customary — use the same concept (3-D space occupied) but in different scales. The US customary system has been frozen since 1824. Importantly, a "cup" in Canada is 250 mL, but in the US it's 236.588 mL, which causes real-world mismatches in imported recipes. Our tool uses the US legal cup.`,
+    aboutB: (from, to) => `${capitalize(uOfSystem(from.symbol))} — both metric and US customary — use the same concept (3-D space occupied) but in different scales. The US customary system has been frozen since 1824. Importantly, a "cup" in Canada is 250 mL, but in the US it's 236.588 mL, which causes real-world mismatches in imported recipes. Our tool uses the US customary cup.`,
     formulaP: (from, to) => `The factor is fixed by international standards: 1 ${from.symbol} = ${(from.toBase / to.toBase).toPrecision(8)} ${to.symbol}. Type anything in the box above and the converted value appears instantly, accurate to 8 significant figures.`,
     faq: (uFrom, uTo) => [
       { q: `How many ${uFrom.symbol} in a ${uTo.symbol}?`, a: `1 ${uTo.symbol} = ${(uTo.toBase / uFrom.toBase).toPrecision(6)} ${uFrom.symbol}.` },
       { q: `Is 1 US gallon the same as 1 UK gallon?`, a: `No. 1 US (liquid) gallon is 3.785 L; 1 UK (imperial) gallon is 4.546 L. This converter uses the US gallon unless otherwise noted.` },
       { q: `Are your fluid ounce conversions US or UK?`, a: `Our fluid ounce is the US fluid ounce (29.5735 mL). The UK (imperial) fluid ounce is 28.4131 mL — slightly smaller.` },
-      { q: `Why doesn't my metric cup match the recipe?`, a: `Recipes from US sites assume 1 cup = 236.588 mL (US legal). Recipes from many other countries assume 250 mL. If you're following a US recipe, use the values from this converter.` },
+      { q: `Why doesn't my metric cup match the recipe?`, a: `Recipes from US sites assume 1 cup = 236.588 mL (US customary). Recipes from many other countries assume 250 mL. If you're following a US recipe, use the values from this converter.` },
       { q: `Is 100 mL the same as 100 cc?`, a: `Almost. 1 mL = 1 cc (cubic centimeter). They're interchangeable in volume, though in medicine mL is preferred. This converter uses mL.` },
     ],
   },
@@ -265,14 +290,15 @@ function renderOne(pair) {
   }
   const isCross = !!pair.density;
   const copy = COPY[uFrom.cat] || COPY[uTo.cat] || COPY.weight;
+  const pageOverride = PAGE_OVERRIDES[pair.slug];
 
   const materialLabel = pair.material ? ` for ${capitalize(pair.material)}` : '';
-  const title = `${uFrom.name} to ${uTo.name} Converter${materialLabel}`;
+  const title = pageOverride?.title || `${uFrom.name} to ${uTo.name} Converter${materialLabel}`;
   const h1   = `${uFrom.name} to ${uTo.name} Converter${materialLabel}`;
   const h1LowerCase = `${uFrom.name} to ${uTo.name}`.toLowerCase();
-  const metaDescription = copy.aboutA(uFrom, uTo).slice(0, 158).replace(/<[^>]+>/g, '');
+  const metaDescription = pageOverride?.description || copy.aboutA(uFrom, uTo).slice(0, 158).replace(/<[^>]+>/g, '');
   const keywords = [uFrom.name.toLowerCase(), uTo.name.toLowerCase(), uFrom.symbol, uTo.symbol, pair.slug, 'converter', 'free'].join(', ');
-  const longDesc = copy.aboutA(uFrom, uTo);
+  const longDesc = pageOverride?.lead || copy.aboutA(uFrom, uTo);
 
   // cross-cat（density-based）专用：覆盖通用 copy
   let formulaPara, about1, about2;
@@ -281,9 +307,9 @@ function renderOne(pair) {
     about1 = `${uFrom.name === 'Gram' ? 'Grams' : uFrom.name} to ${uTo.name.toLowerCase()} conversions depend on the density of the ingredient. This converter is calibrated for ${pair.material}; for other ingredients (e.g. flour, sugar, honey) the ratio differs.`;
     about2 = `Volume-to-mass ratios like ${pair.density} ${uFrom.symbol.toLowerCase()} per ${uTo.symbol.toLowerCase()} are reference values widely used in cookbooks. They assume standard density at room temperature.`;
   } else {
-    formulaPara = copy.formulaP(uFrom, uTo);
+    formulaPara = pageOverride?.formula || copy.formulaP(uFrom, uTo);
     about1 = copy.aboutA(uFrom, uTo);
-    about2 = copy.aboutB(uFrom, uTo);
+    about2 = pageOverride?.detail || copy.aboutB(uFrom, uTo);
   }
 
   const formulaText = (function () {
