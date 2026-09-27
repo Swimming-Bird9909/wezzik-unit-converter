@@ -29,6 +29,11 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <style>
+    .uw-answer{max-width:960px;margin:1.25rem auto;padding:1rem 1.25rem;border:1px solid #dfe5ef;border-radius:12px;background:#f8fafc;color:#334155}
+    .uw-answer h2{margin:.1rem 0 .35rem;font-size:1.15rem}
+    .uw-answer p{margin:.35rem 0}
+  </style>
 
   <!-- JSON-LD: WebApplication -->
   <script type="application/ld+json">
@@ -127,6 +132,11 @@
   </header>
 
   <main>
+    <section class="uw-answer" aria-labelledby="answer-heading">
+      <h2 id="answer-heading">Free online unit converter</h2>
+      <p>UnitWise converts length, weight, temperature, volume, pressure, speed, energy, cooking and digital storage units instantly in your browser. No signup is required.</p>
+      <p><a href="/all-converters.html">Browse every converter</a> or try <a href="/psi-to-bar.html">PSI to bar</a>, <a href="/kpa-to-psi.html">kPa to PSI</a>, or <a href="/cups-to-ml.html">cups to milliliters</a>.</p>
+    </section>
     <section class="uw-hero">
       <div class="uw-container">
         <span class="uw-hero__eyebrow">Lightning-fast · Browser-based · Zero tracking</span>
@@ -405,5 +415,6 @@
       document.querySelector('#uwNav')?.classList.toggle('is-open');
     });
   </script>
+<nav aria-label="产品说明"><a href="/product-guide.html">换算标准、示例与适用限制</a></nav>
 </body>
 </html>
