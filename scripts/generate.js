@@ -42,7 +42,7 @@ const GA4_SNIPPET = `<!-- Google tag (gtag.js) -->
   gtag('config', 'G-MBNPYB5FJ7');
 </script>`;
 
-// 为有搜索曝光的页面提供直接、明确的换算答案。
+// 为有搜索曝光的页面提供直接、明确的换算答案，避免通用摘要在句中截断。
 const PAGE_OVERRIDES = {
   'psi-to-bar': {
     title: 'PSI to Bar Converter: Formula & Quick Chart | UnitWise',
@@ -642,6 +642,7 @@ function renderSitemap() {
     { loc: 'https://convert.wezzik.com/all-converters.html', priority: '0.8' },
     { loc: 'https://convert.wezzik.com/cooking-conversion.html', priority: '0.7' },
     { loc: 'https://convert.wezzik.com/blog.html', priority: '0.6' },
+    { loc: 'https://convert.wezzik.com/product-guide.html', priority: '0.6' },
     { loc: 'https://convert.wezzik.com/blog/pounds-to-kilograms.html', priority: '0.7' },
     { loc: 'https://convert.wezzik.com/blog/cups-to-grams.html', priority: '0.7' },
     { loc: 'https://convert.wezzik.com/blog/fahrenheit-to-celsius.html', priority: '0.7' },
