@@ -42,7 +42,7 @@ const GA4_SNIPPET = `<!-- Google tag (gtag.js) -->
   gtag('config', 'G-MBNPYB5FJ7');
 </script>`;
 
-// 对已有搜索曝光的页面提供具体答案，避免通用摘要在句中截断。
+// 为有搜索曝光的页面提供直接、明确的换算答案，避免通用摘要在句中截断。
 const PAGE_OVERRIDES = {
   'psi-to-bar': {
     title: 'PSI to Bar Converter: Formula & Quick Chart | UnitWise',
