@@ -299,7 +299,7 @@ function renderOne(pair) {
   const title = pageOverride?.title || `${uFrom.name} to ${uTo.name} Converter${materialLabel}`;
   const h1   = `${uFrom.name} to ${uTo.name} Converter${materialLabel}`;
   const h1LowerCase = `${uFrom.name} to ${uTo.name}`.toLowerCase();
-  const metaDescription = pageOverride?.description || copy.aboutA(uFrom, uTo).slice(0, 158).replace(/<[^>]+>/g, '');
+  const metaDescription = pageOverride?.description || `Convert ${uFrom.name} to ${uTo.name} instantly with UnitWise. Get the ${uFrom.symbol} to ${uTo.symbol} formula, calculator result and quick reference chart. Free, no signup.`;
   const keywords = [uFrom.name.toLowerCase(), uTo.name.toLowerCase(), uFrom.symbol, uTo.symbol, pair.slug, 'converter', 'free'].join(', ');
   const longDesc = pageOverride?.lead || copy.aboutA(uFrom, uTo);
 
